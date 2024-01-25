@@ -136,7 +136,7 @@ module Rails
             ["version", "version"]
           when "--tasks", "-T"
             ["", ""]
-          when /^-(?! *-trace$)/, ""
+          when /^-/, ""
             ["help", "help"]
           when /^(.+):(\w+)$/
             [$1, $2]

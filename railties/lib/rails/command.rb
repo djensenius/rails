@@ -48,58 +48,6 @@ module Rails
 
     HELP_MAPPINGS = %w(-h -? --help).to_set
     VERSION_MAPPINGS = %w(-v --version).to_set
-    OTHER_MAPPINGS = %w(
-      --all
-      -A
-      --backtrace
-      -n
-      --comments
-      --describe
-      -D
-      --dry-run
-      -n
-      --execute
-      -e
-      --execute-print
-      -p
-      --execute-continue
-      -E
-      --jobs
-      -j
-      --job-stats
-      --libdir
-      -l
-      --multitask
-      -m
-      --nosearch
-      -N
-      --prereqs
-      -P
-      --quiet
-      -q
-      --rakefile
-      -f
-      --rakelibdir
-      -R
-      --require
-      -r
-      --rules
-      --silent
-      -s
-      --suppress-backtrace
-      --system
-      -g
-      --no-system
-      -G
-      --trace
-      -t
-      --verbose
-      -v
-      --where
-      -W
-      --no-deprecation-warnings
-      -X
-      ).to_set
 
     class << self
       def hidden_commands # :nodoc:
@@ -188,9 +136,7 @@ module Rails
             ["version", "version"]
           when "--tasks", "-T"
             ["", ""]
-          when OTHER_MAPPINGS
-            [namespace, namespace]
-          when /^-/, ""
+          when /^-(?! *-trace$)/, ""
             ["help", "help"]
           when /^(.+):(\w+)$/
             [$1, $2]
